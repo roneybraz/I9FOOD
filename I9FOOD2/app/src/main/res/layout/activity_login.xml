@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    tools:context="com.example.televideo.i9food.LoginActivity">
+
+
+    <Button
+        android:id="@+id/login_bntEntrar"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="36dp"
+        android:background="#e3b47c"
+        android:elevation="0dp"
+        android:text="ENTRAR"
+        android:textColor="#2c1407"
+        app:layout_constraintBottom_toTopOf="@+id/login_bntCadastrar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <TextView
+        android:id="@+id/login_bntCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:keyboardNavigationCluster="false"
+        android:text="QUERO ME CADASTRAR!"
+        android:textColor="#e3b47c"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:onClick="ToCadatrar" />
+
+    <EditText
+        android:id="@+id/login_txtSenha"
+        android:layout_width="293dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginStart="58dp"
+        android:backgroundTint="#e3b47c"
+        android:ems="10"
+        android:hint="SENHA"
+        android:textColorHint="#e3b47c"
+        android:inputType="textPersonName"
+        android:textColor="#e3b47c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.603"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_editor_absoluteY="368dp" />
+
+    <EditText
+        android:id="@+id/login_txtEmail"
+        android:layout_width="293dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginStart="58dp"
+        android:backgroundTint="#e3b47c"
+        android:ems="10"
+        android:hint="EMAIL"
+        android:inputType="textPersonName"
+        android:textColor="#e3b47c"
+        android:textColorHint="#e3b47c"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteY="302dp"
+        app:layout_constraintVertical_bias="0.499" />
+
+</android.support.constraint.ConstraintLayout>
