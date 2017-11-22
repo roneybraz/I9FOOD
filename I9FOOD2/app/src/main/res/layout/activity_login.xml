@@ -44,10 +44,10 @@
 
     <EditText
         android:id="@+id/login_txtSenha"
-        android:layout_width="293dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginStart="58dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginStart="59dp"
         android:backgroundTint="#e3b47c"
         android:ems="10"
         android:hint="SENHA"
@@ -60,15 +60,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.603"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_editor_absoluteY="368dp" />
+        tools:layout_constraintRight_creator="1" />
 
     <EditText
         android:id="@+id/login_txtEmail"
-        android:layout_width="293dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginStart="58dp"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="306dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="306dp"
         android:backgroundTint="#e3b47c"
         android:ems="10"
         android:hint="EMAIL"
@@ -79,11 +80,24 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_editor_absoluteY="302dp"
-        app:layout_constraintVertical_bias="0.499" />
+        tools:layout_constraintTop_creator="1" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="307dp"
+        android:layout_height="248dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        tools:layout_constraintLeft_creator="1" />
 
 </android.support.constraint.ConstraintLayout>

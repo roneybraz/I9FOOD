@@ -2,6 +2,7 @@ package com.example.televideo.i9food;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         Realm.init(this);
         realm = Realm.getDefaultInstance();
 
@@ -36,6 +38,38 @@ public class LoginActivity extends AppCompatActivity {
         ToCadastrar=(TextView)findViewById(R.id.login_bntCadastrar);
 
 
+        SharedPreferences prefs= getSharedPreferences("login",Context.MODE_PRIVATE);
+        String email= prefs.getString("email", "nenhum resultado");
+        String senha= prefs.getString("senha", "nenhum resultado");
+
+        if (!email.equals("")&&!senha.equals("")) {
+
+            try {
+                Usuario emailView = realm.where(Usuario.class).equalTo("email", email).findFirst();
+
+
+                String emailbanco = emailView.getEmail();
+                String senhabanco = emailView.getSenha();
+
+
+                if (email.equals(emailbanco) && senha.equals(senhabanco)) {
+
+
+                    Intent ToCadastro = new Intent(getContext(), MainActivity.class);
+                    startActivity(ToCadastro);
+
+
+                }
+
+            }catch (RuntimeException e){
+                Toast.makeText(LoginActivity.this, "INFORME EMAIL E SENHA!", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+
+
+
         Entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,17 +77,42 @@ public class LoginActivity extends AppCompatActivity {
                 String txtemail=Email.getText().toString();
                 String txtsenha=Senha.getText().toString();
 
-                Usuario emailView= realm.where(Usuario.class).equalTo("email",txtemail).findFirst();
 
-                String email=emailView.getEmail();
-                String senha=emailView.getSenha();
+                if (!txtemail.equals("")&&!txtsenha.equals("")) {
 
-                if(txtemail.equals(email) &&  txtsenha.equals(senha)) {
-                    Intent ToCadastro = new Intent(getContext(),MainActivity.class);
-                    startActivity(ToCadastro);
-                }
-                else Toast.makeText(LoginActivity.this, "EMAIL ou SENHA INCORRETO!", Toast.LENGTH_SHORT).show();
+                    try {
+                        Usuario emailView = realm.where(Usuario.class).equalTo("email", txtemail).findFirst();
 
+
+                        int idUsuario = emailView.getId();
+                        String email = emailView.getEmail();
+                        String senha = emailView.getSenha();
+
+
+                        if (txtemail.equals(email) && txtsenha.equals(senha)) {
+
+
+                            Intent ToCadastro = new Intent(getContext(), MainActivity.class);
+                            startActivity(ToCadastro);
+
+                            SharedPreferences prefs = getSharedPreferences("login", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor ed = prefs.edit();
+
+
+                            ed.putString("idusuario", String.valueOf(idUsuario));
+                            ed.putString("nomeUsuario", emailView.getNome());
+                            ed.putString("email", email);
+                            ed.putString("senha", senha);
+
+                            ed.apply();
+
+
+                        } else
+                            Toast.makeText(LoginActivity.this, "EMAIL ou SENHA INCORRETO!", Toast.LENGTH_SHORT).show();
+                    }catch (RuntimeException e){
+                        Toast.makeText(LoginActivity.this, "EMAIL ou SENHA INCORRETO", Toast.LENGTH_SHORT).show();
+                    }
+                }else Toast.makeText(LoginActivity.this, "EMAIL ou SENHA INCORRETO", Toast.LENGTH_SHORT).show();
 
 
 
@@ -72,8 +131,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent ToCadastro = new Intent(getContext(),CadastrarActivity.class);
-                startActivity(ToCadastro);
+                Intent it=null;
+                Bundle params = new Bundle();
+                it= new Intent(getContext(),CadastrarActivity.class);
+                params.putString("idnew", "new");
+                it.putExtras(params);
+                startActivity(it);
 
             }
         });

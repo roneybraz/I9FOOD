@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+
+
     <item
         android:id="@+id/action_busca"
         android:layout_width="match_parent"
@@ -13,12 +15,21 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_pedidos"
+
         android:orderInCategory="103"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_pedidos"
         android:icon="@drawable/ic_action_pedidos"
+        android:orderInCategory="103"
         android:title="Pedidos"
-        app:showAsAction="always"
-        />
+        app:showAsAction="always" />
+
+    <item
+
+        android:orderInCategory="103"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_eventos"
@@ -28,11 +39,23 @@
         app:showAsAction="always"/>
 
     <item
+
+        android:orderInCategory="103"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_perfil"
         android:orderInCategory="103"
         android:icon="@drawable/ic_action_perfil"
         android:title="Eu"
         app:showAsAction="always"/>
+
+    <item
+
+        android:orderInCategory="103"
+        app:showAsAction="always" />
+
+
 
 
 </menu>

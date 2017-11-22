@@ -1,10 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fundo"
-    tools:context="com.example.televideo.i9food.PedidosActivity">
+    android:background="@drawable/fundo">
 
-</android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" />
+
+    <include
+        android:id="@+id/inc_tb_botao"
+        layout="@layout/toolbar_botao" />
+
+    <ListView
+        android:id="@+id/pedidos_listPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="470dp"
+        android:layout_below="@+id/tb_main" />
+
+    <Button
+        android:id="@+id/pedidos_btnLimpar"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/colorPrimary"
+        android:text="LIMPAR"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:layout_below="@+id/pedidos_listPedidos"
+        android:layout_toStartOf="@+id/pedidos_btnComprar" />
+
+    <Button
+        android:id="@+id/pedidos_btnComprar"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/pedidos_listPedidos"
+        android:layout_marginEnd="15dp"
+        android:background="@color/colorPrimary"
+        android:text="COMPRAR"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pedidos_lblREsultados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/textView3"
+        android:text="00.00"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:text="TOTAL:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/pedidos_btnLimpar"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

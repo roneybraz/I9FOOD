@@ -2,12 +2,15 @@ package com.example.televideo.i9food;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -40,42 +43,44 @@ public class CadastrarActivity extends AppCompatActivity {
 
 
 
-
-
-
         btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
+                    String CPF= txtCPF.getText().toString();
+                    String nome= txtNome.getText().toString();
+                    String endereco= txtEndereco.getText().toString();
+                    String fone= txtFone.getText().toString();
+                    String email= txtEmail.getText().toString();
+                    String senha= txtSenha.getText().toString();
 
-                String CPF= txtCPF.getText().toString();
-                String nome= txtNome.getText().toString();
-                String endereco= txtEndereco.getText().toString();
-                String fone= txtFone.getText().toString();
-                String email= txtEmail.getText().toString();
-                String senha= txtSenha.getText().toString();
 
+                    Usuario usuario = new Usuario();
+                    usuario.setId(Usuario.autoIncrement());
+                    usuario.setCpf(CPF);
+                    usuario.setNome(nome);
+                    usuario.setEndereco(endereco);
+                    usuario.setFone(fone);
+                    usuario.setEmail(email);
+                    usuario.setSenha(senha);
 
-                Usuario usuario = new Usuario();
-                usuario.setId(Usuario.autoIncrement());
-                usuario.setCpf(CPF);
-                usuario.setNome(nome);
-                usuario.setEndereco(endereco);
-                usuario.setFone(fone);
-                usuario.setEmail(email);
-                usuario.setSenha(senha);
+                    realm.beginTransaction();
+                    realm.copyToRealm(usuario);
+                    realm.commitTransaction();
 
-                realm.beginTransaction();
-                realm.copyToRealm(usuario);
-                realm.commitTransaction();
-
-                Intent ToCadastro = new Intent(getContext(),MainActivity.class);
-                startActivity(ToCadastro);
-
+                    Intent ToCadastro = new Intent(getContext(),LoginActivity.class);
+                    startActivity(ToCadastro);
 
 
 
-            }
-        });
+
+                }
+            });
+
+
+
+
+
+
 
     }
     @Override
