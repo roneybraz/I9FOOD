@@ -3,12 +3,11 @@ package com.example.televideo.i9food;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import io.realm.Realm;
 
@@ -77,6 +76,18 @@ public class EditPerfilActivity extends AppCompatActivity {
                 usuario.setSenha(senha);
 
                 realm.commitTransaction();
+
+                SharedPreferences prefs = getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor ed = prefs.edit();
+
+
+                ed.putString("idusuario", "");
+                ed.putString("nomeUsuario", "");
+                ed.putString("email", "");
+                ed.putString("senha", "");
+
+                ed.apply();
+
 
                 Intent ToCadastro = new Intent(getContext(),LoginActivity.class);
                 startActivity(ToCadastro);
