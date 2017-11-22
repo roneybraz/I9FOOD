@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.televideo.i9food">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -24,7 +27,7 @@
         <activity android:name=".PerfilActivity" />
         <activity android:name=".FinalizaCompraActivity" />
         <activity android:name=".EditPerfilActivity" />
-        <activity android:name=".SocialActivity"></activity>
+        <activity android:name=".SocialActivity" />
     </application>
 
 </manifest>
