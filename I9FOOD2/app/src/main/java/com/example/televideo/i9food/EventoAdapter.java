@@ -1,21 +1,16 @@
 package com.example.televideo.i9food;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.pdf.PdfDocument;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.w3c.dom.Document;
+
 import java.util.ArrayList;
 
 /**
@@ -25,6 +20,7 @@ import java.util.ArrayList;
 public class EventoAdapter extends ArrayAdapter<Eventos> {
     Context contexto;
     ArrayList<Eventos> eventos;
+    Document document;
 
 
     public EventoAdapter(Context context, int resource,ArrayList<Eventos> objects){
@@ -42,7 +38,7 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
         TextView Data = (TextView)linhaView.findViewById(R.id.linha_eventos_data);
         TextView Local = (TextView)linhaView.findViewById(R.id.linha_eventos_local);
         TextView Descricao = (TextView)linhaView.findViewById(R.id.linha_eventoDescricao);
-        ImageView Imagem=(ImageView) linhaView.findViewById(R.id.linha_Eventos_img);
+        final ImageView Imagem=(ImageView) linhaView.findViewById(R.id.linha_Eventos_img);
         ImageView bntadd_evento=(ImageView) linhaView.findViewById(R.id.linha_evento_add);
 
 
@@ -54,55 +50,19 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
         Imagem.setImageResource(eventos.get(position).getImagem());
 
 
+
+
         bntadd_evento.setOnClickListener(new View.OnClickListener() {
+
+
+
+
             @Override
             public void onClick(View v) {
 
-
-
-
-                // create a new document
-                PdfDocument document = new PdfDocument();
-
-                // crate a page description
-                PdfDocument.PageInfo pageInfo =
-                        new PdfDocument.PageInfo.Builder(100, 100, 1).create();
-
-                // start a page
-                PdfDocument.Page page = document.startPage(pageInfo);
-
-                Canvas canvas = page.getCanvas();
-
-                Paint paint = new Paint();
-                paint.setColor(Color.BLACK);
-
-
-
-                canvas.drawText("I9FOOD",28,20,paint);
-                canvas.drawText("VISITANTE",18,70,paint);
-                paint.setTextSize(5);
-                //canvas.drawText("Roney",30,85,paint);
-
-
-
-                // finish the page
-                document.finishPage(page);
-
-
-
-                // write the document content
-                String targetPdf = "/sdcard/I9FOOD.pdf";
-                File filePath = new File(targetPdf);
-                try {
-                    document.writeTo(new FileOutputStream(filePath));
-                    Toast.makeText(contexto, "Credencial Gravada com Sucesso!", Toast.LENGTH_LONG).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(contexto, "Erro "+e.toString(), Toast.LENGTH_SHORT).show();
-                }
-
-                // close the document
-                document.close();
+                Intent it=null;
+                it= new Intent(getContext(),CredencialActivity.class);
+                contexto.startActivity(it);
 
             }
 
@@ -117,6 +77,11 @@ public class EventoAdapter extends ArrayAdapter<Eventos> {
 
 
 
+
+
     }
+
+
+
 
 }

@@ -3,8 +3,8 @@
     package="com.example.televideo.i9food">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +28,7 @@
         <activity android:name=".FinalizaCompraActivity" />
         <activity android:name=".EditPerfilActivity" />
         <activity android:name=".SocialActivity" />
+        <activity android:name=".CredencialActivity"></activity>
     </application>
 
 </manifest>
